@@ -1,5 +1,5 @@
 <?php
-
+date_default_timezone_set('America/Mexico_City');
 include_once '../../Conexion_/conexion.php';
 
 class ManejadorSolicitudes {

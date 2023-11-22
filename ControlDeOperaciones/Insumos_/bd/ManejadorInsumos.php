@@ -50,6 +50,7 @@ class ManejadorInsumos {
     // Otros métodos relevantes para manejar los insumos
 }
 
+try {
 // Uso de la clase ManejadorInsumos
 $manejadorInsumos = new ManejadorInsumos();
 
@@ -72,3 +73,7 @@ switch ($opcion) {
 
 // Devolver los datos obtenidos como respuesta a la solicitud
 echo json_encode($data, JSON_UNESCAPED_UNICODE);
+} catch (PDOException $e) {
+    // Manejo de errores
+    echo json_encode(['error' => $e->getMessage()]);
+}

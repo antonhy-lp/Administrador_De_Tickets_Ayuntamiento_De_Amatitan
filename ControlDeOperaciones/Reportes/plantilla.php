@@ -6,10 +6,9 @@
 * Autor:  Antonio                                           *
 *                                                           *
 ************************************************************/
-
-require 'fpdf/fpdf.php';
+include "pdf_mc_table.php";
 date_default_timezone_set('America/Mexico_City');
-class PDF extends FPDF
+class PDF extends PDF_MC_Table
 {
     // Cabecera de página
     function Header()

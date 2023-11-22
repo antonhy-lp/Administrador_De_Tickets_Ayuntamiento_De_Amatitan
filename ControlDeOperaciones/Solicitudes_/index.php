@@ -103,7 +103,7 @@ $resultado->nextRowset();
              <div class="modal-body"> <!--Solicitud -->
                 <div class="form-group">
                 <label id="SoliDes" for="nombre" class="col-form-label">Descripcion:</label>
-                <input maxlength="23" title='Ingresa una desripcion (Maximo 23 caracteres)' type="text" class="form-control" id="SolicitudDes">
+                <input maxlength="120" title='Ingresa una desripcion (Maximo 120 caracteres)' type="text" class="form-control" id="SolicitudDes">
                 </div>                
                 <div class="form-group">
                 <!--Datos para agregar no editables-->
@@ -144,15 +144,15 @@ $resultado->nextRowset();
                 <!-- Ticket -->
                 <div class="form-group">
                 <label id="TickDes" for="TicketDescripcion" class="col-form-label">Descripcion:</label>
-                <input maxlength="23" title='Ingresa una desripcion (Maximo 23 caracteres)' type="text" class="form-control" id="TicketDescripcion">
+                <input maxlength="120" title='Ingresa una desripcion (Maximo 120 caracteres)' type="text" class="form-control" id="TicketDescripcion">
                 </div>    
                 <div class="form-group">
                 <label id="TickPr" for="TicketProblema" class="col-form-label">Problema:</label>
-                <input title='Ingresa el problema del equipo' type="text" class="form-control" id="TicketProblema">
+                <input maxlength="120" title='Ingresa el problema del equipo (Maximo 120 caracteres)' type="text" class="form-control" id="TicketProblema">
                 </div> 
                 <div class="form-group">
                 <label id="TickSl" for="TicketSolucion" class="col-form-label">Solucion:</label>
-                <input title='Ingresa el solucion para reparacion del equipo' type="text" class="form-control" id="TicketSolucion">
+                <input maxlength="120" title='Ingresa el solucion para reparacion del equipo (Maximo 120 caracteres)' type="text" class="form-control" id="TicketSolucion">
                 </div> 
                 <div class="form-group">
                  <label id="LabelEq" for="Equipo" class="col-form-label">Selecciona un equipo:</label>

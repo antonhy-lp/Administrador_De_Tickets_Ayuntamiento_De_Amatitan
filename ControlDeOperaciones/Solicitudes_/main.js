@@ -131,8 +131,6 @@ $(document).ready(function () {
     //-----------------------------------------------------------------------------------------//
 
 
-
-
     function borrarSolicitud($tr) {
         fila = $tr.closest("tr");
         SolicitudId = parseInt(fila.find('td:eq(0)').text());
@@ -223,8 +221,16 @@ $(document).ready(function () {
                 SolicitudFe = data[0].SolicitudFe;
                 Estatus = data[0].Estatus;
                 SolicitudId = data[0].SolicitudId
-                if (opcion == 1) { tablaPersonas.row.add([SolicitudId, PersonalNo, SolicitudDes, SolicitudPri, SolicitudFe, Estatus]).draw(); alertify.success('La solicitud ' + SolicitudId + ' ' + SolicitudDes + ' a sido registrada!'); }
-                else { tablaPersonas.row(fila).data([SolicitudId, PersonalNo, SolicitudDes, SolicitudPri, SolicitudFe, Estatus]); alertify.success('La solicitud ' + SolicitudId + ' a sido modificada!'); $(this).removeClass('selected'); }
+                if (opcion == 1) {
+                    tablaPersonas.row.add([SolicitudId, PersonalNo, SolicitudDes, SolicitudPri, SolicitudFe, Estatus]).draw();
+                    desactivarBotonEditar($(fila));
+                    alertify.success('La solicitud ' + SolicitudId + ' ' + SolicitudDes + ' a sido registrada!');
+                }
+                else {
+                    tablaPersonas.row(fila).data([SolicitudId, PersonalNo, SolicitudDes, SolicitudPri, SolicitudFe, Estatus]);
+                    desactivarBotonEditar($(fila));
+                    alertify.success('La solicitud ' + SolicitudId + ' a sido modificada!'); $(this).removeClass('selected');
+                }
             }
         });
         $("#modalCRUD").modal("hide");
@@ -256,10 +262,10 @@ $(document).ready(function () {
     });
 
     function desactivarBotonEditar(fil) {
-       // console.log("Fila contiene: " + fila);
-            fila = $(fil)
-        let opcion = fila.find('td#textEstado').text(); // Este valor puede variar
-
+        // console.log("Fila contiene: " + fila);
+        fila = $(fil)
+        let opcion = fila.find('td#textEstado').text().trim(); // Este valor puede variar
+        console.log('llegue');
         switch (opcion) {
             case "Terminado":
                 fila.find('#Estado').prop("disabled", true);
@@ -276,7 +282,7 @@ $(document).ready(function () {
         }
     }
 
-    tablaPersonas.rows().every(function() {
+    tablaPersonas.rows().every(function () {
         let fila = this.node();
         desactivarBotonEditar(fila);
         return true;
